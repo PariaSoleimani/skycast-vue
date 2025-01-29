@@ -10,6 +10,7 @@
           :timeOfDay="timeOfDay"
         ></weather-greeting>
         <weather-icon :weatherData="weatherData" :timeOfDay="timeOfDay"></weather-icon>
+        <current-weather :weatherData="weatherData"></current-weather>
       </main>
     </div>
   </div>
@@ -21,12 +22,14 @@
   import AppHeader from './components/AppHeader.vue';
   import WeatherGreeting from './components/WeatherGreeting.vue';
   import WeatherIcon from './components/WeatherIcon.vue';
+  import CurrentWeather from './components/CurrentWeather.vue';
 
   export default {
     components: {
       AppHeader,
       WeatherGreeting,
       WeatherIcon,
+      CurrentWeather,
     },
     provide() {
       return {
