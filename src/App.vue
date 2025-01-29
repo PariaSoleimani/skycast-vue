@@ -9,6 +9,7 @@
           :weatherData="weatherData"
           :timeOfDay="timeOfDay"
         ></weather-greeting>
+        <weather-icon :weatherData="weatherData" :timeOfDay="timeOfDay"></weather-icon>
       </main>
     </div>
   </div>
@@ -19,15 +20,18 @@
   import gsap from 'gsap';
   import AppHeader from './components/AppHeader.vue';
   import WeatherGreeting from './components/WeatherGreeting.vue';
+  import WeatherIcon from './components/WeatherIcon.vue';
 
   export default {
     components: {
       AppHeader,
       WeatherGreeting,
+      WeatherIcon,
     },
     provide() {
       return {
         weatherTypeMessages: this.weatherTypeMessages,
+        weatherIcons: this.weatherIcons,
       };
     },
     data() {
@@ -46,6 +50,24 @@
           Clear: 'Look up at the clear sky! Enjoy!',
           Clouds: "It's cloudy! Don't forget your jacket!",
           Thunderstorm: "It's stormy! Prepare for the loud thunders!",
+        },
+        weatherIcons: {
+          day: {
+            Rain: '/src/assets/rain.png',
+            Mist: '/src/assets/fog.png',
+            Snow: '/src/assets/snow.png',
+            Clear: '/src/assets/sunny.png',
+            Clouds: '/src/assets/mostly-cloudy.png',
+            Thunderstorm: '/src/assets/thunderstorms-sunny.png',
+          },
+          night: {
+            Rain: '/src/assets/drizzle-night.png',
+            Mist: '/src/assets/fog.png',
+            Snow: '/src/assets/snow.png',
+            Clear: '/src/assets/night.png',
+            Clouds: '/src/assets/mostly-cloudy-night.png',
+            Thunderstorm: '/src/assets/thunderstorms-night.png',
+          },
         },
       };
     },

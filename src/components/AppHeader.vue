@@ -1,5 +1,5 @@
 <template>
-  <header class="pt-8">
+  <header>
     <nav class="flex items-center justify-between">
       <form
         class="group flex w-fit items-center rounded-3xl py-0.5 transition-all duration-1000 focus-within:w-72 focus-within:gap-3 focus-within:border focus-within:px-3"
