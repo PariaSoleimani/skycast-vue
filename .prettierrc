@@ -1,0 +1,20 @@
+{
+  "printWidth": 100,
+  "singleQuote": true,
+  "bracketSpacing": false,
+  "bracketLine": true,
+  "jsxBracketSameLine": true,
+  "arrowParens": "avoid",
+  "singleAttributePerLine": false,
+  "htmlWhitespaceSensitivity": "ignore",
+  "vueIndentScriptAndStyle": true,
+  "plugins": [
+    "prettier-plugin-vue",
+    "prettier-plugin-tailwindcss",
+    "prettier-plugin-organize-attributes"
+  ],
+  "tailwindConfig": "./tailwind.config.js",
+  "sortHtmlAttributes": {
+    "order": ["class", "id", "src", "href", "alt", "title", "type", "name", "data-"]
+  }
+}
