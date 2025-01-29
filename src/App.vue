@@ -1,9 +1,14 @@
 <template>
   <div class="bg w-screen overflow-x-hidden font-sans">
-    <div class="mx-auto flex h-full max-w-7xl flex-col gap-6 px-12">
+    <div class="mx-auto flex h-full max-w-7xl flex-col gap-6 px-12 py-8">
       <app-header @select-city="selectCity"></app-header>
-      <main>
+      <main class="flex w-full flex-col">
         <div v-if="error" class="text-red-500">{{ error }}</div>
+        <weather-greeting
+          :user="user"
+          :weatherData="weatherData"
+          :timeOfDay="timeOfDay"
+        ></weather-greeting>
       </main>
     </div>
   </div>
@@ -13,17 +18,35 @@
   import axios from 'axios';
   import gsap from 'gsap';
   import AppHeader from './components/AppHeader.vue';
+  import WeatherGreeting from './components/WeatherGreeting.vue';
 
   export default {
     components: {
       AppHeader,
+      WeatherGreeting,
+    },
+    provide() {
+      return {
+        weatherTypeMessages: this.weatherTypeMessages,
+      };
     },
     data() {
       return {
         apiKey: 'd0376c716d3b1cf5731a07dddf0ed8fb',
+        user: {
+          name: 'Paria',
+        },
         selectedCity: '',
         weatherData: null,
         error: null,
+        weatherTypeMessages: {
+          Rain: "It's rainy! You'd better take an umbrella!",
+          Mist: "It's misty! Drive carefully!",
+          Snow: "Grab your warm clothes! Let's make a snowman!",
+          Clear: 'Look up at the clear sky! Enjoy!',
+          Clouds: "It's cloudy! Don't forget your jacket!",
+          Thunderstorm: "It's stormy! Prepare for the loud thunders!",
+        },
       };
     },
     computed: {
