@@ -1,6 +1,7 @@
 <template>
   <div class="bg w-screen overflow-x-hidden font-sans">
-    <div class="mx-auto flex h-full max-w-7xl flex-col gap-6 px-12 py-8">
+    <welcome-view v-if="!user" @new-user="registerNewUser"></welcome-view>
+    <div v-else class="mx-auto flex h-full max-w-7xl flex-col gap-6 px-12 py-8">
       <app-header @select-city="selectCity"></app-header>
       <main class="flex w-full flex-col">
         <div v-if="error" class="text-red-500">{{ error }}</div>
@@ -27,6 +28,7 @@
   import CurrentWeather from './components/CurrentWeather.vue';
   import HourlyWeather from './components/HourlyWeather.vue';
   import WeeklyWeather from './components/WeeklyWeather.vue';
+  import WelcomeView from './components/WelcomeView.vue';
 
   export default {
     components: {
@@ -36,6 +38,7 @@
       CurrentWeather,
       HourlyWeather,
       WeeklyWeather,
+      WelcomeView,
     },
     provide() {
       return {
@@ -46,9 +49,7 @@
     data() {
       return {
         apiKey: 'd0376c716d3b1cf5731a07dddf0ed8fb',
-        user: {
-          name: 'Paria',
-        },
+        user: null,
         selectedCity: '',
         weatherData: null,
         error: null,
@@ -103,6 +104,9 @@
       },
     },
     methods: {
+      registerNewUser(user) {
+        this.user = user;
+      },
       selectCity(city) {
         this.selectedCity = city;
       },
@@ -120,10 +124,11 @@
       },
     },
     watch: {
-      selectedCity(oldCity, newCity) {
-        if (newCity && newCity !== oldCity) {
-          this.getCityData(newCity);
-        }
+      user(newUser) {
+        this.getCityData(newUser.city);
+      },
+      selectedCity(newCity) {
+        this.getCityData(newCity);
       },
       timeOfDay(newTimeOfDay) {
         let gradient;
