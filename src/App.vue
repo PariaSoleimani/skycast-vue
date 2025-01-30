@@ -1,20 +1,24 @@
 <template>
   <div
-    class="bg w-screen overflow-x-hidden font-sans"
+    class="bg w-dvw overflow-x-hidden font-sans md:h-dvh"
     :class="dynamicTextColor"
     @mousemove="handleMouseMove"
   >
     <welcome-view v-if="!user" @new-user="registerNewUser"></welcome-view>
-    <div v-else class="mx-auto flex h-full max-w-7xl flex-col gap-6 px-12 py-8">
+    <div v-else class="mx-auto flex max-w-7xl flex-col gap-6 px-12 py-8">
       <app-header @select-city="selectCity"></app-header>
-      <main class="flex w-full flex-col">
+      <main class="flex w-full flex-col md:grid md:grid-cols-6 md:grid-rows-2 grow">
         <div v-if="error" class="text-red-500">{{ error }}</div>
         <weather-greeting
           :user="user"
           :weatherData="weatherData"
           :timeOfDay="timeOfDay"
         ></weather-greeting>
-        <weather-icon :weatherData="weatherData" :timeOfDay="timeOfDay" :mouse="mouse"></weather-icon>
+        <weather-icon
+          :weatherData="weatherData"
+          :timeOfDay="timeOfDay"
+          :mouse="mouse"
+        ></weather-icon>
         <current-weather :weatherData="weatherData"></current-weather>
         <hourly-weather :weatherData="weatherData" :timeOfDay="timeOfDay"></hourly-weather>
         <weekly-weather :weatherData="weatherData" :timeOfDay="timeOfDay"></weekly-weather>

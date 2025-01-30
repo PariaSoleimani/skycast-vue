@@ -1,7 +1,8 @@
 <template>
-  <img alt="Current Weather icon" :src="showWeatherIcon" :style="iconMove" />
+  <div class="flex items-center justify-center md:col-span-2 md:row-span-2">
+    <img alt="Current Weather icon" :src="showWeatherIcon" class="md:scale-125" :style="iconMove" />
+  </div>
 </template>
-
 <script>
   export default {
     props: ['timeOfDay', 'weatherData', 'mouse'],

@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-7 h-fit w-full md:mt-0">
+  <div class="mt-7 h-fit w-full md:mt-0 md:col-span-2 md:self-end md:row-start-2">
     <h2 class="mb-2 flex items-center gap-1 text-lg font-semibold opacity-80">
       <i class="ph-fill ph-calendar-dots"></i>
       <span>5-Day Forecast</span>

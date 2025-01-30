@@ -1,5 +1,5 @@
 <template>
-  <div class="message mx-auto max-w-md">
+  <div class="message mx-auto max-w-md md:col-span-2 md:mx-0">
     <h2 class="mb-3 text-center text-3xl font-bold tracking-tight md:text-start md:text-4xl">
       {{ greetMessage }}
     </h2>
