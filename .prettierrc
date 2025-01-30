@@ -1,0 +1,11 @@
+{
+  "printWidth": 100,
+  "singleQuote": true,
+  "bracketSpacing": false,
+  "arrowParens": "avoid",
+  "singleAttributePerLine": false,
+  "htmlWhitespaceSensitivity": "ignore",
+  "vueIndentScriptAndStyle": true,
+  "plugins": ["prettier-plugin-vue", "prettier-plugin-tailwindcss"],
+  "tailwindConfig": "./tailwind.config.js"
+}
