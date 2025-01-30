@@ -7,7 +7,7 @@
     <welcome-view v-if="!user" @new-user="registerNewUser"></welcome-view>
     <div v-else class="mx-auto flex max-w-7xl flex-col gap-6 px-12 py-8">
       <app-header @select-city="selectCity"></app-header>
-      <main class="flex w-full flex-col md:grid md:grid-cols-6 md:grid-rows-2 grow">
+      <main class="flex w-full grow flex-col md:grid md:grid-cols-6 md:grid-rows-2">
         <div v-if="error" class="text-red-500">{{ error }}</div>
         <weather-greeting
           :user="user"
@@ -71,20 +71,20 @@
         },
         weatherIcons: {
           day: {
-            Rain: '/src/assets/rain.png',
-            Mist: '/src/assets/fog.png',
-            Snow: '/src/assets/snow.png',
-            Clear: '/src/assets/sunny.png',
-            Clouds: '/src/assets/mostly-cloudy.png',
-            Thunderstorm: '/src/assets/thunderstorms-sunny.png',
+            Rain: '/rain.png',
+            Mist: '/fog.png',
+            Snow: '/snow.png',
+            Clear: '/sunny.png',
+            Clouds: '/mostly-cloudy.png',
+            Thunderstorm: '/thunderstorms-sunny.png',
           },
           night: {
-            Rain: '/src/assets/drizzle-night.png',
-            Mist: '/src/assets/fog.png',
-            Snow: '/src/assets/snow.png',
-            Clear: '/src/assets/night.png',
-            Clouds: '/src/assets/mostly-cloudy-night.png',
-            Thunderstorm: '/src/assets/thunderstorms-night.png',
+            Rain: '/drizzle-night.png',
+            Mist: '/fog.png',
+            Snow: '/snow.png',
+            Clear: '/night.png',
+            Clouds: '/mostly-cloudy-night.png',
+            Thunderstorm: '/thunderstorms-night.png',
           },
         },
         mouse: {
