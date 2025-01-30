@@ -1,5 +1,5 @@
 <template>
-  <div class="bg w-screen overflow-x-hidden font-sans">
+  <div class="bg w-screen overflow-x-hidden font-sans" :class="dynamicTextColor">
     <welcome-view v-if="!user" @new-user="registerNewUser"></welcome-view>
     <div v-else class="mx-auto flex h-full max-w-7xl flex-col gap-6 px-12 py-8">
       <app-header @select-city="selectCity"></app-header>
@@ -82,6 +82,17 @@
       };
     },
     computed: {
+      dynamicTextColor() {
+        if (
+          this.timeOfDay === 'noon' ||
+          this.timeOfDay === 'morning' ||
+          this.timeOfDay === 'afternoon'
+        ) {
+          return 'text-zinc-800';
+        } else {
+          return 'text-white';
+        }
+      },
       timeOfDay() {
         if (!this.weatherData?.city?.timezone) {
           return 'unknown';
