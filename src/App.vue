@@ -1,5 +1,9 @@
 <template>
-  <div class="bg w-screen overflow-x-hidden font-sans" :class="dynamicTextColor">
+  <div
+    class="bg w-screen overflow-x-hidden font-sans"
+    :class="dynamicTextColor"
+    @mousemove="handleMouseMove"
+  >
     <welcome-view v-if="!user" @new-user="registerNewUser"></welcome-view>
     <div v-else class="mx-auto flex h-full max-w-7xl flex-col gap-6 px-12 py-8">
       <app-header @select-city="selectCity"></app-header>
@@ -10,7 +14,7 @@
           :weatherData="weatherData"
           :timeOfDay="timeOfDay"
         ></weather-greeting>
-        <weather-icon :weatherData="weatherData" :timeOfDay="timeOfDay"></weather-icon>
+        <weather-icon :weatherData="weatherData" :timeOfDay="timeOfDay" :mouse="mouse"></weather-icon>
         <current-weather :weatherData="weatherData"></current-weather>
         <hourly-weather :weatherData="weatherData" :timeOfDay="timeOfDay"></hourly-weather>
         <weekly-weather :weatherData="weatherData" :timeOfDay="timeOfDay"></weekly-weather>
@@ -79,6 +83,10 @@
             Thunderstorm: '/src/assets/thunderstorms-night.png',
           },
         },
+        mouse: {
+          mouseX: 0,
+          mouseY: 0,
+        },
       };
     },
     computed: {
@@ -120,6 +128,10 @@
       },
       selectCity(city) {
         this.selectedCity = city;
+      },
+      handleMouseMove(event) {
+        this.mouse.mouseX = event.clientX - window.innerWidth / 2;
+        this.mouse.mouseY = event.clientY - window.innerHeight / 2;
       },
       async getCityData(city) {
         try {
