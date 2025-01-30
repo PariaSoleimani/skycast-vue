@@ -2,6 +2,8 @@
 
 SkyCast is a dynamic web application that provides real-time weather updates for any location. The app allows users to check the current weather and forecast the coming hours and days. The goal is to offer an easy-to-use visually pleasing interface that delivers accurate and up-to-date weather information.
 
+![Project Screenshot](src/assets/skycast-screenshot.png)
+
 ## Key Features
 
 - Real-Time Weather Data: Get instant access to current weather conditions.
