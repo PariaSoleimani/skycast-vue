@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-screen w-full bg-[url(/src/assets/welcome-bg1.jpg)] bg-cover bg-bottom bg-no-repeat text-white"
+    class="h-screen w-full bg-[url(/welcome-bg1.jpg)] bg-cover bg-bottom bg-no-repeat text-white"
   >
     <div class="mx-auto flex h-full max-w-7xl items-center justify-center px-8">
       <div
